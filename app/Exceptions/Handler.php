@@ -20,6 +20,7 @@ class Handler extends ExceptionHandler
         \Illuminate\Database\Eloquent\ModelNotFoundException::class,
         \Illuminate\Session\TokenMismatchException::class,
         \Illuminate\Validation\ValidationException::class,
+        ActionFailedException::class,
     ];
 
     /**
@@ -44,6 +45,12 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
+        if ($exception instanceof ActionFailedException) {
+            if($request->wantsJson()) {
+                return response()->json($exception->getMessage(), $exception->getCode() ?: 500);
+            }
+        }
+
         return parent::render($request, $exception);
     }
 
