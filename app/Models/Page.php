@@ -14,14 +14,6 @@ class Page extends Model
     protected $fillable = ['title', 'slug','is_enabled'];
 
     /**
-     * @return Page
-     */
-    public static function statsPage(): Page
-    {
-        return self::findBySlug(PageEnum::STATS)->firstOrFail();
-    }
-
-    /**
      * @param Builder $query
      * @param $slug
      * @return Builder
