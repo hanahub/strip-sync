@@ -28,4 +28,20 @@ class PageService extends Service
 
         return $page;
     }
+
+    /**
+     * @param array $pages
+     */
+    public function toggleEnablingOnPagesIfRequired(array $pages)
+    {
+        foreach ($pages as $pageData) {
+            /** @var Page $page */
+            $page = Page::find($pageData['id']);
+
+            if ($page->isEnabled() !== (bool)$pageData['is_enabled']) {
+                $page->toggleOfEnabling()
+                    ->save();
+            }
+        }
+    }
 }

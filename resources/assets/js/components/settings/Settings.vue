@@ -1,0 +1,125 @@
+<template>
+  <div>
+    <form novalidate @submit.prevent="save" @keydown="form.errors.clear($event.target.name)">
+      <ul class="nav nav-tabs tabs-bordered nav-justified">
+        <li class="nav-item">
+          <a href="#venue-info" data-toggle="tab" aria-expanded="false" class="nav-link active">
+            Venue Info
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="#default-settings" data-toggle="tab" aria-expanded="true" class="nav-link">
+            Default Settings
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="#shifts" data-toggle="tab" aria-expanded="false" class="nav-link">
+            Shifts
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="#working-environment" data-toggle="tab" aria-expanded="false" class="nav-link">
+            Working Environment
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="#views-b2" data-toggle="tab" aria-expanded="false" class="nav-link">
+            Views
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="#roles-b2" data-toggle="tab" aria-expanded="false" class="nav-link">
+            Roles
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="#contacts-b2" data-toggle="tab" aria-expanded="false" class="nav-link">
+            Contacts
+          </a>
+        </li>
+      </ul>
+      <div class="tab-content">
+        <div class="tab-pane active" id="venue-info">
+          <venue-info :form="this.form"></venue-info>
+        </div>
+        <div class="tab-pane" id="default-settings">
+          <default-settings :form="this.form"></default-settings>
+        </div>
+        <div class="tab-pane" id="shifts">
+          <shift-times :shift-times="form.shiftTimes" :errors="form.errors"></shift-times>
+        </div>
+        <div class="tab-pane" id="working-environment">
+          <working-environment :form="this.form"></working-environment>
+        </div>
+        <div class="tab-pane" id="views-b2">
+          <pages :pages="form.pages"></pages>
+        </div>
+        <div class="tab-pane" id="roles-b2">
+          <roles :roles="form.roles"></roles>
+        </div>
+        <div class="tab-pane" id="contacts-b2">
+          <contracts :contracts="form.contracts"></contracts>
+        </div>
+      </div>
+
+      <button type="submit" :disabled="form.errors.any()" class="btn btn-success waves-effect w-md waves-light">
+        Save Settings
+      </button>
+    </form>
+  </div>
+</template>
+
+<script>
+  import Form from './Form.js';
+  import VenueInfo from './VenueInfo.vue';
+  import DefaultSettings from './DefaultSettings.vue';
+  import ShiftTimes from './ShiftTimes.vue';
+  import WorkingEnvironment from './WorkingEnvironment.vue';
+  import Pages from './Pages.vue';
+  import Roles from './Roles.vue';
+  import Contracts from './Contracts.vue';
+
+  Object.defineProperty(Array.prototype, 'chunk', {
+    value: function (chunkSize) {
+      let R = [];
+      for (let i = 0; i < this.length; i += chunkSize)
+        R.push(this.slice(i, i + chunkSize));
+      return R;
+    }
+  });
+
+  export default {
+    components: {
+      'venue-info': VenueInfo,
+      'default-settings': DefaultSettings,
+      'shift-times': ShiftTimes,
+      'working-environment': WorkingEnvironment,
+      'pages': Pages,
+      'roles': Roles,
+      'contracts': Contracts,
+    },
+    props: ['url', 'venue', 'shiftTimes', 'pages', 'roles', 'contracts'],
+    data() {
+      return {
+        form: new Form(Object.assign({}, this.venue, {
+          shiftTimes: this.shiftTimes,
+          pages: this.pages,
+          roles: this.roles,
+          contracts: this.contracts,
+        }), {
+          roles: ['id', 'is_enabled'],
+          pages: ['id', 'is_enabled'],
+          shiftTimes: ['id', 'start', 'end', 'is_delete']
+        })
+      }
+    },
+    methods: {
+      save: function () {
+        this.form.put(this.url)
+          .then(function () {
+          }, function (data) {
+          });
+      }
+    }
+  }
+</script>

@@ -22,4 +22,22 @@ class Role extends Model
     {
         return $this->hasMany(User::class);
     }
+
+    /**
+     * @return bool
+     */
+    public function isEnabled(): bool
+    {
+        return (bool)$this->is_enabled;
+    }
+
+    /**
+     * @return Role
+     */
+    public function toggleOfEnabling()
+    {
+        $this->is_enabled = ! $this->is_enabled;
+
+        return $this;
+    }
 }

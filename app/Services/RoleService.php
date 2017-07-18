@@ -26,4 +26,20 @@ class RoleService extends Service
 
         return $role;
     }
+
+    /**
+     * @param array $roles
+     */
+    public function toggleEnablingOnRolesIfRequired(array $roles)
+    {
+        foreach ($roles as $roleData) {
+            /** @var Role $role */
+            $role = Role::find($roleData['id']);
+
+            if ($role->isEnabled() !== (bool)$roleData['is_enabled']) {
+                $role->toggleOfEnabling()
+                    ->save();
+            }
+        }
+    }
 }

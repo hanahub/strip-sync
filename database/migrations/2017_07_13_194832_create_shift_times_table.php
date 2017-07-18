@@ -16,8 +16,9 @@ class CreateShiftTimesTable extends Migration
         Schema::create('shift_times', function (Blueprint $table) {
             $table->increments('id');
 
-            $table->time('start');
-            $table->time('end');
+            // For time need 5 chars like 23:15
+            $table->string('start', 5);
+            $table->string('end', 5);
 
             $table->timestamps();
             $table->softDeletes();

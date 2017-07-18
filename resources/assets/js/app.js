@@ -15,7 +15,8 @@ window.Vue = require('vue');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('example', require('./components/Example.vue'));
+Vue.component('validation-message', require('./components/ValidationMessage.vue'));
+Vue.component('settings', require('./components/settings/Settings.vue'));
 
 const app = new Vue({
     el: '#app'

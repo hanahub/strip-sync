@@ -11,7 +11,7 @@ class Page extends Model
 {
     use SoftDeletes;
 
-    protected $fillable = ['title', 'slug','is_enabled'];
+    protected $fillable = ['title', 'slug', 'is_enabled'];
 
     /**
      * @param Builder $query
@@ -29,5 +29,15 @@ class Page extends Model
     public function isEnabled(): bool
     {
         return (bool)$this->is_enabled;
+    }
+
+    /**
+     * @return Page
+     */
+    public function toggleOfEnabling()
+    {
+        $this->is_enabled = ! $this->is_enabled;
+
+        return $this;
     }
 }
