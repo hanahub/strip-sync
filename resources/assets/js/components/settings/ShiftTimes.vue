@@ -18,6 +18,7 @@
 
 <script>
   import ShiftTime from './ShiftTime.vue';
+  import { maxValueOfRandomID } from './constants';
 
   export default {
     components: {
@@ -37,10 +38,10 @@
           return shiftTime.id === id;
         });
 
-        if (id > 1) {
-          this.shiftTimes.splice(shiftTimeIndex, 1, Object.assign({}, this.shiftTimes[shiftTimeIndex], {is_delete: true}));
-        } else {
+        if (id < maxValueOfRandomID) {
           this.shiftTimes.splice(shiftTimeIndex, 1);
+        } else {
+          this.shiftTimes.splice(shiftTimeIndex, 1, Object.assign({}, this.shiftTimes[shiftTimeIndex], {is_delete: true}));
         }
       }
     }

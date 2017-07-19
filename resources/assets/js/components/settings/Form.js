@@ -1,4 +1,5 @@
 import Form from './../../Form';
+import { maxValueOfRandomID } from './constants';
 
 export default class SettingsForm extends Form {
   /**
@@ -10,7 +11,7 @@ export default class SettingsForm extends Form {
     for (let i = 0, shiftTime; (shiftTime = data['shiftTimes'][i++]);) {
 
       // We check below
-      if (shiftTime.id < 1) {
+      if (shiftTime.id < maxValueOfRandomID) {
         delete shiftTime.id;
       }
     }
