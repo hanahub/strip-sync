@@ -2,7 +2,7 @@
   <div>
 
     <div class="form-group row">
-      <label class="col-2 col-form-label">Legal Business Name</label>
+      <label class="col-2 col-form-label">{{ $t("SETTINGS.VENUE_INFO.LEGAL_BUSINESS_NAME") }}</label>
       <div class="col-10">
         <input type="text" class="form-control" v-model="form.legal_business_name" name="legal_business_name">
 
@@ -11,7 +11,7 @@
     </div>
 
     <div class="form-group row">
-      <label class="col-2 col-form-label">President name</label>
+      <label class="col-2 col-form-label">{{ $t("SETTINGS.VENUE_INFO.PRESIDENT_NAME") }}</label>
       <div class="col-10">
         <input type="text" class="form-control" v-model="form.president_name" name="president_name">
 
@@ -20,9 +20,10 @@
     </div>
 
     <div class="form-group row">
-      <label class="col-2 col-form-label">Legal business address</label>
+      <label class="col-2 col-form-label">{{ $t("SETTINGS.VENUE_INFO.LEGAL_BUSINESS_ADDRESS") }}</label>
       <div class="col-10">
-        <textarea class="form-control" rows="5" v-model="form.legal_business_address" name="legal_business_address"></textarea>
+        <textarea class="form-control" rows="5" v-model="form.legal_business_address"
+                  name="legal_business_address"></textarea>
 
         <validation-message :errors="form.errors" :property-name="'legal_business_address'"></validation-message>
       </div>
@@ -30,9 +31,10 @@
 
 
     <div class="form-group row">
-      <label class="col-2 col-form-label">Physical venue address</label>
+      <label class="col-2 col-form-label">{{ $t("SETTINGS.VENUE_INFO.PHYSICAL_VENUE_ADDRESS") }}</label>
       <div class="col-10">
-        <textarea class="form-control" rows="5" v-model="form.physical_venue_address" name="physical_venue_address"></textarea>
+        <textarea class="form-control" rows="5" v-model="form.physical_venue_address"
+                  name="physical_venue_address"></textarea>
 
         <validation-message :errors="form.errors" :property-name="'physical_venue_address'"></validation-message>
       </div>
@@ -40,18 +42,19 @@
 
 
     <div class="form-group row">
-      <label class="col-2 col-form-label">Operating hours type</label>
+      <label class="col-2 col-form-label">{{ $t("SETTINGS.VENUE_INFO.OPERATING_HOURS_TYPE") }}</label>
       <div class="col-10">
         <select class="form-control" v-model="form.operating_hours_type" name="operating_hours_type">
-          <option v-for="operatingType in operatingTypes" :value="operatingType.value">{{ operatingType.title }}</option>
+          <option v-for="operatingType in operatingTypes" :value="operatingType.value">{{ operatingType.title }}
+          </option>
         </select>
 
         <validation-message :errors="form.errors" :property-name="'operating_hours_type'"></validation-message>
       </div>
     </div>
 
-    <div class="form-group row" v-if="isSpecificOperatingTime()">
-      <label class="col-2 col-form-label">Operating hours open</label>
+    <div class="form-group row" v-if="isSpecificOperatingTime">
+      <label class="col-2 col-form-label">{{ $t("SETTINGS.VENUE_INFO.OPERATING_HOURS_OPEN") }}</label>
       <div class="col-10">
         <input type="time" class="form-control" v-model="form.operating_hours_open" name="operating_hours_open">
 
@@ -59,8 +62,8 @@
       </div>
     </div>
 
-    <div class="form-group row" v-if="isSpecificOperatingTime()">
-      <label class="col-2 col-form-label">Operating hours close</label>
+    <div class="form-group row" v-if="isSpecificOperatingTime">
+      <label class="col-2 col-form-label">{{ $t("SETTINGS.VENUE_INFO.OPERATING_HOURS_CLOSE") }}</label>
       <div class="col-10">
         <input type="time" class="form-control" v-model="form.operating_hours_close" name="operating_hours_close">
 
@@ -71,41 +74,31 @@
 </template>
 
 <script>
-  const specificOperatingTypeValue = 'specific';
+  const operatingTypeValues = {
+    specific: 'specific',
+    hours24: "24_hours"
+  };
 
   export default {
     props: ['form'],
-    data: () => {
+    data() {
       return {
         operatingTypes: [
           {
-            title: '24 hours',
-            value: '24 hours',
+            title: this.$i18n.t(`SETTINGS.VENUE_INFO.OPERATING_HOURS_TYPES.${operatingTypeValues.hours24}`),
+            value: operatingTypeValues.hours24,
           },
           {
-            title: 'Specific',
-            value: specificOperatingTypeValue
+            title: this.$i18n.t(`SETTINGS.VENUE_INFO.OPERATING_HOURS_TYPES.${operatingTypeValues.specific}`),
+            value: operatingTypeValues.specific
           }
         ]
       }
     },
-    methods: {
+    computed: {
       isSpecificOperatingTime() {
-        return this.form.operating_hours_type === specificOperatingTypeValue;
+        return this.form.operating_hours_type === operatingTypeValues.specific;
       }
     }
   }
 </script>
-
-<style>
-  .help {
-    display: block;
-    font-size: 11px;
-    margin-top: 5px;
-  }
-
-
-  .help.is-danger {
-    color: #ff3860;
-  }
-</style>

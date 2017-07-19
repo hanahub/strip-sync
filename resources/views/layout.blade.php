@@ -77,6 +77,10 @@
     <script src="/assets/js/jquery.core.js"></script>
     <script src="/assets/js/jquery.app.js"></script>
 
+    <script>
+      window.translationMessages = {!!  json_encode(trans('front')) !!};
+    </script>
+
     <script src="{{ mix('/js/app.js') }}"></script>
   </body>
 </html>

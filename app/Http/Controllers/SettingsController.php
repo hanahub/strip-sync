@@ -35,8 +35,8 @@ class SettingsController extends Controller
         $venue = Venue::first();
 
         $shiftTimes = ShiftTime::all(['id', 'start', 'end']);
-        $pages = Page::all(['id', 'title', 'is_enabled']);
-        $roles = Role::get(['id', 'title', 'is_enabled']);
+        $pages = Page::all(['id', 'slug', 'is_enabled']);
+        $roles = Role::get(['id', 'slug','is_enabled']);
         $contracts = Contract::all();
 
         return view('settings.index', compact('venue', 'shiftTimes', 'pages', 'roles', 'contracts'));

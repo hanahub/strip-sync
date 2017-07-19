@@ -1,6 +1,6 @@
 <template>
   <div>
-    <p>Enable/disable pages.</p>
+    <p>{{ $t("SETTINGS.VIEWS.DESCRIPTION") }}</p>
 
     <div class="row">
       <div class="col-3" v-for="chunkPages in pages.chunk(4)">

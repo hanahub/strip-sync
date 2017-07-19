@@ -2,7 +2,7 @@
   <div>
 
     <div class="form-group row">
-      <label class="col-2 col-form-label">House fee</label>
+      <label class="col-2 col-form-label">{{ $t("SETTINGS.DEFAULT_SETTINGS.HOUSE_FEE") }}</label>
       <div class="col-10">
         <div class="input-group">
           <span class="input-group-addon"><i class="fa fa-usd"></i></span>
@@ -14,7 +14,7 @@
     </div>
 
     <div class="form-group row">
-      <label class="col-2 col-form-label">Stage fee</label>
+      <label class="col-2 col-form-label">{{ $t("SETTINGS.DEFAULT_SETTINGS.STAGE_FEE") }}</label>
       <div class="col-10">
         <div class="input-group">
           <span class="input-group-addon"><i class="fa fa-usd"></i></span>
@@ -26,7 +26,7 @@
     </div>
 
     <div class="form-group row">
-      <label class="col-2 col-form-label">Standard cover cost</label>
+      <label class="col-2 col-form-label">{{ $t("SETTINGS.DEFAULT_SETTINGS.STANDARD_COVER_COST") }}</label>
       <div class="col-10">
         <div class="input-group">
           <span class="input-group-addon"><i class="fa fa-usd"></i></span>
@@ -39,7 +39,7 @@
 
 
     <div class="form-group row">
-      <label class="col-2 col-form-label">Simultaneous performers</label>
+      <label class="col-2 col-form-label">{{ $t("SETTINGS.DEFAULT_SETTINGS.SIMULTANEOUS_PERFORMERS") }}</label>
       <div class="col-10">
         <input type="number" class="form-control" v-model="form.simultaneous_performers">
 
@@ -48,7 +48,7 @@
     </div>
 
     <div class="form-group row">
-      <label class="col-2 col-form-label">Default song duration</label>
+      <label class="col-2 col-form-label">{{ $t("SETTINGS.DEFAULT_SETTINGS.DEFAULT_SONG_DURATION") }}</label>
       <div class="col-10">
         <div class="input-group">
           <input type="number" class="form-control" v-model="form.default_song_duration">
@@ -60,7 +60,7 @@
     </div>
 
     <div class="form-group row">
-      <label class="col-2 col-form-label">Default dance price</label>
+      <label class="col-2 col-form-label">{{ $t("SETTINGS.DEFAULT_SETTINGS.DEFAULT_DANCE_PRICE") }}</label>
       <div class="col-10">
         <div class="input-group">
           <span class="input-group-addon"><i class="fa fa-usd"></i></span>

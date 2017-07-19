@@ -1,15 +1,12 @@
 <template>
   <div>
-    <p>
-      Please enter the ideal number of employees required for your venues work environment per role.
-      Strip Sync will indicate when you are short staffed in the Stats section.
-    </p>
+    <p  v-html="$t('SETTINGS.WORKING_ENVIRONMENT.DESCRIPTION')"></p>
 
 
     <div class="row">
       <div class="col-6">
         <div class="form-group row">
-          <label class="col-2 col-form-label">Entertainers</label>
+          <label class="col-2 col-form-label">{{ $t("SETTINGS.WORKING_ENVIRONMENT.ENTERTAINERS") }}</label>
           <div class="col-10">
             <input type="number" min="0" class="form-control" v-model="form.entertainers_count">
 
@@ -18,7 +15,7 @@
         </div>
 
         <div class="form-group row">
-          <label class="col-2 col-form-label">Bartenders</label>
+          <label class="col-2 col-form-label">{{ $t("SETTINGS.WORKING_ENVIRONMENT.BARTENDERS") }}</label>
           <div class="col-10">
             <input type="number" min="0" class="form-control" v-model="form.bartenders_count">
 
@@ -27,7 +24,7 @@
         </div>
 
         <div class="form-group row">
-          <label class="col-2 col-form-label">Shot Girls</label>
+          <label class="col-2 col-form-label">{{ $t("SETTINGS.WORKING_ENVIRONMENT.SHOT_GIRLS") }}</label>
           <div class="col-10">
             <input type="number" min="0" class="form-control" v-model="form.shot_girls_count">
 
@@ -37,7 +34,7 @@
 
 
         <div class="form-group row">
-          <label class="col-2 col-form-label">Waitresses</label>
+          <label class="col-2 col-form-label">{{ $t("SETTINGS.WORKING_ENVIRONMENT.WAITRESSES") }}</label>
           <div class="col-10">
             <input type="number" min="0" class="form-control" v-model="form.waitress_count">
 
@@ -48,7 +45,7 @@
 
       <div class="col-6">
         <div class="form-group row">
-          <label class="col-2 col-form-label">Bottle servers</label>
+          <label class="col-2 col-form-label">{{ $t("SETTINGS.WORKING_ENVIRONMENT.BOTTLE_SERVERS") }}</label>
           <div class="col-10">
             <input type="number" min="0" class="form-control" v-model="form.bottle_servers_count">
 
@@ -57,7 +54,7 @@
         </div>
 
         <div class="form-group row">
-          <label class="col-2 col-form-label">Djs</label>
+          <label class="col-2 col-form-label">{{ $t("SETTINGS.WORKING_ENVIRONMENT.DJS") }}</label>
           <div class="col-10">
             <input type="number" min="0" class="form-control" v-model="form.djs_count">
 
@@ -66,7 +63,7 @@
         </div>
 
         <div class="form-group row">
-          <label class="col-2 col-form-label">Security</label>
+          <label class="col-2 col-form-label">{{ $t("SETTINGS.WORKING_ENVIRONMENT.SECURITY") }}</label>
           <div class="col-10">
             <input type="number" min="0" class="form-control" v-model="form.security_count">
 
@@ -75,7 +72,7 @@
         </div>
 
         <div class="form-group row">
-          <label class="col-2 col-form-label">Promotors</label>
+          <label class="col-2 col-form-label">{{ $t("SETTINGS.WORKING_ENVIRONMENT.PROMOTERS") }}</label>
           <div class="col-10">
             <input type="number" min="0" class="form-control" v-model="form.promoters_count">
 

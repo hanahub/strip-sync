@@ -4,37 +4,37 @@
       <ul class="nav nav-tabs tabs-bordered nav-justified">
         <li class="nav-item">
           <a href="#venue-info" data-toggle="tab" aria-expanded="false" class="nav-link active">
-            Venue Info
+            {{ $t("SETTINGS.VENUE_INFO.TITLE") }}
           </a>
         </li>
         <li class="nav-item">
           <a href="#default-settings" data-toggle="tab" aria-expanded="true" class="nav-link">
-            Default Settings
+            {{ $t("SETTINGS.DEFAULT_SETTINGS.TITLE") }}
           </a>
         </li>
         <li class="nav-item">
           <a href="#shifts" data-toggle="tab" aria-expanded="false" class="nav-link">
-            Shifts
+            {{ $t("SETTINGS.SHIFT_TIMES.TITLE") }}
           </a>
         </li>
         <li class="nav-item">
           <a href="#working-environment" data-toggle="tab" aria-expanded="false" class="nav-link">
-            Working Environment
+            {{ $t("SETTINGS.WORKING_ENVIRONMENT.TITLE") }}
           </a>
         </li>
         <li class="nav-item">
           <a href="#views-b2" data-toggle="tab" aria-expanded="false" class="nav-link">
-            Views
+            {{ $t("SETTINGS.VIEWS.TITLE") }}
           </a>
         </li>
         <li class="nav-item">
           <a href="#roles-b2" data-toggle="tab" aria-expanded="false" class="nav-link">
-            Roles
+            {{ $t("SETTINGS.ROLES.TITLE") }}
           </a>
         </li>
         <li class="nav-item">
           <a href="#contacts-b2" data-toggle="tab" aria-expanded="false" class="nav-link">
-            Contacts
+            {{ $t("SETTINGS.CONTRACTS.TITLE") }}
           </a>
         </li>
       </ul>

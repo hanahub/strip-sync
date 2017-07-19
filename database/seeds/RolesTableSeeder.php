@@ -9,6 +9,7 @@ class RolesTableSeeder extends Seeder
     protected $roles = [
         [
             'Super Admin',
+            \App\Enums\RoleEnum::SUPER_ADMIN,
             [
                 PermissionEnum::SCHEDULE_MANAGE,
                 PermissionEnum::STATS_REVIEW,
@@ -18,6 +19,7 @@ class RolesTableSeeder extends Seeder
         ],
         [
             'Admin',
+            \App\Enums\RoleEnum::ADMIN,
             [
                 PermissionEnum::SCHEDULE_MANAGE,
                 PermissionEnum::STATS_REVIEW,
@@ -27,61 +29,73 @@ class RolesTableSeeder extends Seeder
         ],
         [
             'Dj',
+            \App\Enums\RoleEnum::DJ,
             [],
             true
         ],
         [
             'Entertainer',
+            \App\Enums\RoleEnum::ENTERTAINER,
             [],
             true
         ],
         [
             'Security',
+            \App\Enums\RoleEnum::SECURITY,
             [],
             true
         ],
         [
             'Promoter',
+            \App\Enums\RoleEnum::PROMOTER,
             [],
             true
         ],
         [
             'Bartender',
+            \App\Enums\RoleEnum::BARTENDER,
             [],
             true
         ],
         [
             'Shot Girl',
+            \App\Enums\RoleEnum::SHOT_GIRL,
             [],
             true
         ],
         [
             'Waitress',
+            \App\Enums\RoleEnum::WAITRESS,
             [],
             true
         ],
         [
             'Bottle Server',
+            \App\Enums\RoleEnum::BOTTLE_SERVER,
             [],
             true
         ],
         [
             'Vip Attendant',
+            \App\Enums\RoleEnum::VIP_ATTENDANT,
             [],
             true
         ],
         [
             'Station Dance',
+            \App\Enums\RoleEnum::STATION_DANCE,
             [],
             true
         ],
         [
             'Station Shift',
+            \App\Enums\RoleEnum::STATION_SHIFT,
             [],
             true
         ],
         [
             'House Mom',
+            \App\Enums\RoleEnum::HOUSE_MOM,
             [
                 PermissionEnum::STATS_REVIEW,
             ],
@@ -114,8 +128,9 @@ class RolesTableSeeder extends Seeder
         foreach ($this->roles as $role) {
             $this->roleService->store([
                 'title' => $role[0],
-                'permissions' => $role[1],
-                'is_enabled' => $role[2],
+                'slug' => $role[1],
+                'permissions' => $role[2],
+                'is_enabled' => $role[3],
             ]);
         }
     }

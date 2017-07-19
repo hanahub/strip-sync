@@ -3,7 +3,7 @@
   <div class="form-group row">
     <div class="col-3">
       <div class="form-group">
-        <label>Shift Start Time</label>
+        <label>{{ $t("SETTINGS.SHIFT_TIMES.START_TIME") }}</label>
         <input type="time" class="form-control" v-model="shiftTime.start">
 
         <validation-message :errors="errors" :property-name="`shiftTimes.${index}.start`"></validation-message>
@@ -11,7 +11,7 @@
     </div>
     <div class="col-3">
       <div class="form-group">
-        <label>Shift End Time</label>
+        <label>{{ $t("SETTINGS.SHIFT_TIMES.END_TIME") }}</label>
         <input type="time" class="form-control" v-model="shiftTime.end">
 
         <validation-message :errors="errors" :property-name="`shiftTimes.${index}.end`"></validation-message>

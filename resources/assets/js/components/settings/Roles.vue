@@ -1,6 +1,6 @@
 <template>
   <div>
-    <p>Enable/disable roles.</p>
+    <p>{{ $t("SETTINGS.ROLES.DESCRIPTION") }}</p>
 
     <div class="row">
       <div class="col-3" v-for="chunkRoles in roles.chunk(4)">

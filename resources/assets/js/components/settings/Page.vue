@@ -3,7 +3,7 @@
       <div class="checkbox checkbox-primary">
         <input :id="'page_' + page.id" type="checkbox" v-model="page.is_enabled">
         <label :for="'page_' + page.id">
-          {{ page.title }}
+          {{ $t(`SETTINGS.VIEWS.${page.slug}`) }}
         </label>
       </div>
     </div>
