@@ -1,6 +1,22 @@
 <?php
 
 return [
+    "ROLES" => [
+        \App\Enums\RoleEnum::SUPER_ADMIN => "Super Admin",
+        \App\Enums\RoleEnum::ADMIN => "Admin",
+        \App\Enums\RoleEnum::DJ => "Dj",
+        \App\Enums\RoleEnum::ENTERTAINER => "Entertainer",
+        \App\Enums\RoleEnum::SECURITY => "Security",
+        \App\Enums\RoleEnum::PROMOTER => "Promoter",
+        \App\Enums\RoleEnum::BARTENDER => "Bartender",
+        \App\Enums\RoleEnum::SHOT_GIRL => "Shot Girl",
+        \App\Enums\RoleEnum::WAITRESS => "Waitress",
+        \App\Enums\RoleEnum::BOTTLE_SERVER => "Bottle Server",
+        \App\Enums\RoleEnum::VIP_ATTENDANT => "Vip Attendant",
+        \App\Enums\RoleEnum::STATION_DANCE => "Station Dance",
+        \App\Enums\RoleEnum::STATION_SHIFT => "Station Shift",
+        \App\Enums\RoleEnum::HOUSE_MOM => "House Mom",
+    ],
     "NAVIGATION" => [
         "TITLE" => "Navigation",
         "DASHBOARD" => "Dashboard",
@@ -19,6 +35,8 @@ return [
         "HISTORY" => "History",
     ],
     "SETTINGS" => [
+        "PAGE_TITLE" => "Venue Settings",
+        "FORM_HEADER" => "Edit Administrative Settings",
         "VENUE_INFO" => [
             "TITLE" => "Venue Info",
             "LEGAL_BUSINESS_NAME" => "Legal Business Name",
@@ -76,25 +94,61 @@ return [
         "ROLES" => [
             "TITLE" => "Roles",
             "DESCRIPTION" => "Enable/disable roles.",
-            \App\Enums\RoleEnum::SUPER_ADMIN => "Super Admin",
-            \App\Enums\RoleEnum::ADMIN => "Admin",
-            \App\Enums\RoleEnum::DJ => "Dj",
-            \App\Enums\RoleEnum::ENTERTAINER => "Entertainer",
-            \App\Enums\RoleEnum::SECURITY => "Security",
-            \App\Enums\RoleEnum::PROMOTER => "Promoter",
-            \App\Enums\RoleEnum::BARTENDER => "Bartender",
-            \App\Enums\RoleEnum::SHOT_GIRL => "Shot Girl",
-            \App\Enums\RoleEnum::WAITRESS => "Waitress",
-            \App\Enums\RoleEnum::BOTTLE_SERVER => "Bottle Server",
-            \App\Enums\RoleEnum::VIP_ATTENDANT => "Vip Attendant",
-            \App\Enums\RoleEnum::STATION_DANCE => "Station Dance",
-            \App\Enums\RoleEnum::STATION_SHIFT => "Station Shift",
-            \App\Enums\RoleEnum::HOUSE_MOM => "House Mom",
+
         ],
         "CONTRACTS" => [
             "TITLE" => "Contacts",
         ],
         "MESSAGE_UPDATE_SUCCESS" => "Settings was success updated",
+        "BUTTON_SAVE" => "Save Settings",
+    ],
+    "PROFILES" => [
+        "PAGE_TITLE" => "Add New Employee",
+        "GENERAL_INFO" => [
+            "TITLE" => "General Info",
+            "ROLE" => "Role",
+            "FIRST_NAME" => "First name",
+            "LAST_NAME" => "Last name",
+            "STAGE_NAME" => "Stage name or display name",
+            "EMAIL" => "Email",
+            "PASSWORD" => "Password",
+            "PASSWORD_CONFIRMATION" => "Password confirmation",
+            "PIN" => "Pin code",
+            "AVATAR" => "Profile picture",
+            "PHONE" => "Phone",
+            "ADDRESS_STREET" => "Address street",
+            "ADDRESS_CITY" => "Address city",
+            "ADDRESS_STATE" => "Address state",
+            "ADDRESS_ZIP" => "Address zip",
+            "NATIONALITY" => "Nationality",
+            "EMERGENCY_CONTACT_NAME" => "Emergency contact name",
+            "EMERGENCY_CONTACT_RELATIONSHIP" => "Emergency contact relationship",
+            "EMERGENCY_CONTACT_TEL_NO" => "Emergency contact tel no",
+            "EMERGENCY_CONTACT_CELL_NO" => "Emergency contact cell no",
+            "IS_WORKING_VISA" => "Is working visa",
+            "WORKING_VISA_EXPIRY" => "Working visa expiry",
+            "IS_CONVICTED" => "Is convicted",
+            "CONVICTED_DETAILS" => "Convicted details",
+        ],
+        "DETAILED_INFO" => [
+            "TITLE" => "Detailed Info",
+        ],
+        "PHYSICAL_APPEARANCE" => [
+            "TITLE" => "Physical Appearance",
+            "HEIGHT" => "Height",
+            "WEIGHT" => "Weight",
+            "BUST_SIZE" => "Bust size",
+            "WAIST_SIZE" => "Waist size",
+            "EYE_COLOR" => "Eye color",
+            "HAIR_COLOR" => "Hair color",
+        ],
+        "MUSIC_PREFERENCES" => [
+            "TITLE" => "Music Preferences",
+        ],
+        "CONTRACT" => [
+            "TITLE" => "Contract",
+        ],
+        "BUTTON_SAVE" => "Save Profile"
     ],
     "ALERTS" => [
         "HEADERS" => [

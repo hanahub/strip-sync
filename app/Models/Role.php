@@ -2,12 +2,21 @@
 
 namespace App\Models;
 
+use App\Traits\Enableable;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Role extends Model
 {
-    use SoftDeletes;
+    use SoftDeletes, Enableable;
+
+    /**
+     * The model's attributes.
+     *
+     * @var array
+     */
+    protected $visible = ['id', 'slug', 'permissions', 'is_enabled'];
 
     protected $fillable = ['title', 'slug', 'permissions', 'is_enabled'];
 
@@ -23,21 +32,5 @@ class Role extends Model
         return $this->hasMany(User::class);
     }
 
-    /**
-     * @return bool
-     */
-    public function isEnabled(): bool
-    {
-        return (bool)$this->is_enabled;
-    }
 
-    /**
-     * @return Role
-     */
-    public function toggleOfEnabling()
-    {
-        $this->is_enabled = ! $this->is_enabled;
-
-        return $this;
-    }
 }

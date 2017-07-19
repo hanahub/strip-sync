@@ -20,6 +20,8 @@ Vue.use(VueI18n);
 
 Vue.component('validation-message', require('./components/ValidationMessage.vue'));
 Vue.component('settings', require('./components/settings/Settings.vue'));
+Vue.component('profiles-list', require('./components/profiles/List.vue'));
+Vue.component('profiles-form', require('./components/profiles/Form.vue'));
 
 // Ready translated locale messages
 const messages = {

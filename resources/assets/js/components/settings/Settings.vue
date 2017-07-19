@@ -63,7 +63,7 @@
       </div>
 
       <button type="submit" :disabled="form.errors.any()" class="btn btn-success waves-effect w-md waves-light">
-        Save Settings
+        {{ $t("SETTINGS.BUTTON_SAVE") }}
       </button>
     </form>
   </div>

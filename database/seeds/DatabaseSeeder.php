@@ -14,5 +14,8 @@ class DatabaseSeeder extends Seeder
         $this->call(RolesTableSeeder::class);
         $this->call(PagesTableSeeder::class);
         $this->call(VenueSeeder::class);
+        $this->call(NationalitiesSeeder::class);
+        $this->call(EyeColorsSeeder::class);
+        $this->call(HairColorsSeeder::class);
     }
 }

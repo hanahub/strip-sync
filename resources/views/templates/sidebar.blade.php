@@ -12,7 +12,7 @@
         </li>
         @if(Page::profiles()->isEnabled())
           <li>
-            <a href=""><i class="fi-briefcase"></i> <span> @lang('front.NAVIGATION.PROFILES') </span></a>
+            <a href="{{ route('profiles.index') }}"><i class="fi-briefcase"></i> <span> @lang('front.NAVIGATION.PROFILES') </span></a>
           </li>
         @endif
         @if(Page::schedule()->isEnabled())

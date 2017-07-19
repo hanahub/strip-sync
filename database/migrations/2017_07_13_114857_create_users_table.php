@@ -62,6 +62,8 @@ class CreateUsersTable extends Migration
             $table->decimal('bust_size')->unsigned()->nullable();
             $table->decimal('waist_size')->unsigned()->nullable();
 
+            // ToDo: add eye color and hair color
+
             $table->rememberToken();
             $table->timestamps();
             $table->softDeletes();
