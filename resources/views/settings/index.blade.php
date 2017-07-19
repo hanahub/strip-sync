@@ -1,5 +1,13 @@
 @extends('layout')
 
+@section('styles')
+  <link href="/plugins/sweet-alert2/sweetalert2.min.css" rel="stylesheet" type="text/css">
+@endsection
+
+@section('scripts')
+  <script src="/plugins/sweet-alert2/sweetalert2.min.js"></script>
+@endsection
+
 @section('content')
 
   <!-- Start content -->

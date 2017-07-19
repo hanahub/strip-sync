@@ -114,10 +114,25 @@
       }
     },
     methods: {
-      save: function () {
+      save() {
         this.form.put(this.url)
-          .then(function () {
-          }, function (data) {
+          .then(() => {
+            swal(
+              {
+                title: this.$i18n.t('ALERTS.HEADERS.SUCCESS'),
+                text: this.$i18n.t('SETTINGS.MESSAGE_UPDATE_SUCCESS'),
+                type: 'success',
+              }
+            );
+          })
+          .catch((response) => {
+            if (response.status === 422) return;
+
+            swal(
+              this.$i18n.t('ALERTS.HEADERS.ERROR'),
+              response.data,
+              'error'
+            )
           });
       }
     }

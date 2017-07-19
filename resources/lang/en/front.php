@@ -94,5 +94,12 @@ return [
         "CONTRACTS" => [
             "TITLE" => "Contacts",
         ],
+        "MESSAGE_UPDATE_SUCCESS" => "Settings was success updated",
+    ],
+    "ALERTS" => [
+        "HEADERS" => [
+            "SUCCESS" => "Success",
+            "ERROR" => "Error",
+        ],
     ]
 ];

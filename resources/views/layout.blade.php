@@ -19,6 +19,9 @@
     <link href="/assets/css/style.css" rel="stylesheet" type="text/css"/>
 
     <script src="/assets/js/modernizr.min.js"></script>
+
+    @yield('styles')
+
   </head>
   <body>
     <!-- Begin page -->
@@ -76,6 +79,8 @@
     <!-- App js -->
     <script src="/assets/js/jquery.core.js"></script>
     <script src="/assets/js/jquery.app.js"></script>
+
+    @yield('scripts')
 
     <script>
       window.translationMessages = {!!  json_encode(trans('front')) !!};
