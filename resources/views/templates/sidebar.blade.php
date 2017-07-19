@@ -8,7 +8,7 @@
         <li class="menu-title">@lang('front.NAVIGATION.TITLE')</li>
 
         <li>
-          <a href=""><i class="fi-paper"></i> <span> @lang('front.NAVIGATION.DASHBOARD') </span></a>
+          <a href="{{ route('dashboard') }}"><i class="fi-paper"></i> <span> @lang('front.NAVIGATION.DASHBOARD') </span></a>
         </li>
         @if(Page::profiles()->isEnabled())
           <li>

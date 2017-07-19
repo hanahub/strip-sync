@@ -1,9 +1,7 @@
 <?php
 
-Route::get('/', function () {
-    return view('layout');
-});
-
+Route::get('/', 'DashboardController@index')
+    ->name('dashboard');
 
 Route::get('settings', 'SettingsController@index')
     ->name('settings');
