@@ -39,7 +39,7 @@
           <physical-appearance :form="form" :eye-colors="eyeColors" :hair-colors="hairColors"></physical-appearance>
         </div>
         <div class="tab-pane" id="music-preferences">
-          <music-preferences :music-preferences="form.musicPreferences" :errors="form.errors"></music-preferences>
+          <music-preferences :music-preferences="form.music_preferences" :errors="form.errors"></music-preferences>
         </div>
         <div class="tab-pane" id="contract">
           <contract :form="form" :contracts="contracts"></contract>
@@ -54,7 +54,7 @@
 </template>
 
 <script>
-  import Form from './../../Form';
+  import Form from './Form';
   import GeneralInfo from './GeneralInfo.vue';
   import DetailedInfo from './DetailedInfo.vue';
   import PhysicalAppearance from './PhysicalAppearance.vue';
@@ -72,7 +72,7 @@
     props: ['user', 'roles', 'nationalities', 'eyeColors', 'hairColors', 'contracts','url', 'method'],
     data() {
       return {
-        form: new Form(Object.assign(this.user, {
+        form: new Form(Object.assign({
           role_id: null,
           first_name: null,
           last_name: null,
@@ -102,8 +102,11 @@
           waist_size: null,
           eye_color_id: null,
           hair_color_id: null,
-          musicPreferences: [],
-        })),
+          music_preferences: [],
+          contract: null,
+        }, this.user), {
+          music_preferences: ['id', 'artist', 'song_title', 'is_delete']
+        }),
       };
     },
     methods: {

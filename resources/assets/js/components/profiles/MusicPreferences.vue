@@ -27,8 +27,8 @@
       addMusicPreference() {
         this.musicPreferences.push({
           id: Math.random(),
-          artist: '',
-          song_title: '',
+          artist: null,
+          song_title: null,
         });
       },
       removeMusicPreference(id) {

@@ -30,12 +30,17 @@ class ProfileSave extends FormRequest
     public function rules()
     {
         return [
-            'role_id' => ['required', Rule::exists((new Role())->getTable(), 'id')],
+            'role_id' => ['required', Rule::exists((new Role())->getTable(), 'id')->where('is_enabled', true)],
 
             'first_name' => 'required|string|max:255',
             'last_name' => 'required|string|max:255',
-            'email' => ['required', 'email', Rule::unique((new User())->getTable())],
-            'password' => 'required|max:255|confirmed',
+            'email' => [
+                'required',
+                'email',
+                Rule::unique((new User())->getTable())
+                    ->ignore($this->profile ? $this->profile->id : '')
+            ],
+            'password' => 'max:255|confirmed' . ($this->profile ? '' : '|required'),
             'phone' => '',
             'pin_code' => 'nullable|digits:4',
             'stage_name' => 'required|string|max:255',

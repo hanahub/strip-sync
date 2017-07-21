@@ -18,7 +18,6 @@ class User extends Authenticatable
         'first_name',
         'last_name',
         'email',
-        'password',
         'phone',
         'stage_name',
         'address_street',
@@ -40,12 +39,12 @@ class User extends Authenticatable
         'waist_size',
         'contract',
     ];
-    
+
     protected $casts = [
-        'is_working_visa'=> 'boolean',
-        'is_convicted'=> 'boolean',
+        'is_working_visa' => 'boolean',
+        'is_convicted' => 'boolean',
     ];
-    
+
     protected $dates = ['working_visa_expiry_date'];
 
     /**
@@ -95,5 +94,25 @@ class User extends Authenticatable
     public function hairColor()
     {
         return $this->belongsTo(HairColor::class);
+    }
+
+    /**
+     * @param $password
+     * @return $this
+     */
+    public function setPasswordAttribute($password)
+    {
+        $this->password = bcrypt($password);
+
+        return $this;
+    }
+
+    /**
+     * @param $password
+     * @return mixed
+     */
+    public function setPassword($password)
+    {
+        return $this->password = $password;
     }
 }

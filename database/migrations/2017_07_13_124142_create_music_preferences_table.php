@@ -22,7 +22,7 @@ class CreateMusicPreferencesTable extends Migration
             $table->string('song_title')->nullable();
             $table->string('artist')->nullable();
 
-            $table->decimal('order');
+            $table->decimal('order')->nullable();
 
             $table->timestamps();
             $table->softDeletes();

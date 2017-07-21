@@ -88,45 +88,69 @@ class ProfilesController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int $id
+     * @param User $user
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(User $user)
     {
-        //
+        return $user->load('role', 'nationality');
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int $id
+     * @param User $user
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(User $user)
     {
-        //
+        $user->load('role', 'nationality', 'eyeColor', 'hairColor', 'musicPreferences');
+
+        $roles = Role::enabled()->get();
+
+        $nationalities = Nationality::all();
+
+        $eyeColors = EyeColor::all();
+        $hairColors = HairColor::all();
+
+        $contracts = Contract::all();
+
+        return view(
+            'profiles.edit',
+            compact('user', 'roles', 'nationalities', 'eyeColors', 'hairColors', 'contracts')
+        );
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request $request
-     * @param  int $id
+     * @param ProfileSave|Request $request
+     * @param User $user
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ProfileSave $request, User $user)
     {
-        //
+        $eyeColor = $request->has('eye_color_id') ? EyeColor::findOrFail($request->get('eye_color_id')) : null;
+        $hairColor = $request->has('hair_color_id') ? HairColor::findOrFail($request->get('hair_color_id')) : null;
+
+        return $this->userService->update(
+            $user,
+            $request->all(),
+            Role::findOrFail($request->get('role_id')),
+            Nationality::findOrFail($request->get('nationality_id')),
+            $eyeColor,
+            $hairColor
+        );
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int $id
+     * @param User $user
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(User $user)
     {
-        //
+        $this->userService->delete($user);
     }
 }
