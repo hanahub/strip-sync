@@ -36,7 +36,7 @@ class ProfilesController extends Controller
      */
     public function index()
     {
-        $users = User::all();
+        $users = User::with('role')->get();
 
         return view('profiles.index', compact('users'));
     }

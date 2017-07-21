@@ -12,6 +12,10 @@ import VueI18n from 'vue-i18n'
 
 Vue.use(VueI18n);
 
+import {ServerTable, ClientTable, Event} from 'vue-tables-2';
+
+Vue.use(ClientTable);
+
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application

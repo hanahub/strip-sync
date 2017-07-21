@@ -18,6 +18,9 @@
     "laravel-mix": "^1.0",
     "lodash": "^4.17.4",
     "vue": "^2.1.10",
-    "vue-i18n": "^7.0.5"
+    "vue-i18n": "^7.0.5",
+    "vue-tables-2": "^0.6.56"
+  },
+  "dependencies": {
   }
 }

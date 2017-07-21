@@ -3,7 +3,7 @@
       <div class="checkbox checkbox-primary">
         <input :id="'role_' + role.id" type="checkbox" v-model="role.is_enabled">
         <label :for="'role_' + role.id">
-          {{ $t(`SETTINGS.ROLES.${role.slug}`) }}
+          {{ $t(`ROLES.${role.slug}`) }}
         </label>
       </div>
     </div>

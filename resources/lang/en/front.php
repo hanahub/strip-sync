@@ -152,7 +152,9 @@ return [
             "TITLE" => "Contract",
             ""
         ],
-        "BUTTON_SAVE" => "Save Profile"
+        "BUTTON_SAVE" => "Save Profile",
+        "MESSAGE_CREATE_SUCCESS" => "The profile was success created",
+        "MESSAGE_UPDATE_SUCCESS" => "The profile was success updated",
     ],
     "ALERTS" => [
         "HEADERS" => [

@@ -116,7 +116,7 @@
             swal(
               {
                 title: this.$i18n.t('ALERTS.HEADERS.SUCCESS'),
-                text: this.$i18n.t('SETTINGS.MESSAGE_UPDATE_SUCCESS'),
+                text: this.$i18n.t('PROFILES.' + (this.user.id ? 'MESSAGE_UPDATE_SUCCESS' : 'MESSAGE_CREATE_SUCCESS')),
                 type: 'success',
               }
             );

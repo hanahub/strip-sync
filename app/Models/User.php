@@ -98,21 +98,10 @@ class User extends Authenticatable
 
     /**
      * @param $password
-     * @return $this
-     */
-    public function setPasswordAttribute($password)
-    {
-        $this->password = bcrypt($password);
-
-        return $this;
-    }
-
-    /**
-     * @param $password
      * @return mixed
      */
     public function setPassword($password)
     {
-        return $this->password = $password;
+        return $this->password = bcrypt($password);
     }
 }
