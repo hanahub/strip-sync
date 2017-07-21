@@ -1,5 +1,14 @@
 @extends('layout')
 
+@section('styles')
+  <link href="/plugins/sweet-alert2/sweetalert2.min.css" rel="stylesheet" type="text/css">
+@endsection
+
+@section('scripts')
+  <script src="/plugins/sweet-alert2/sweetalert2.min.js"></script>
+@endsection
+
+
 @section('content')
 
 
@@ -31,6 +40,9 @@
                            :nationalities="{{ json_encode($nationalities) }}"
                            :eye-colors="{{ json_encode($eyeColors) }}"
                            :hair-colors="{{ json_encode($hairColors) }}"
+                           :contracts="{{ json_encode($contracts) }}"
+                           :url="{{ json_encode(route('profiles.store')) }}"
+                           :method="'post'"
             ></profiles-form>
           </div>
         </div> <!-- end col -->

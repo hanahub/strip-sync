@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ProfileSave;
+use App\Models\Contract;
 use App\Models\EyeColor;
 use App\Models\HairColor;
 use App\Models\Nationality;
@@ -55,21 +57,32 @@ class ProfilesController extends Controller
         $eyeColors = EyeColor::all();
         $hairColors = HairColor::all();
 
+        $contracts = Contract::all();
+
         return view(
             'profiles.create',
-            compact('user', 'roles', 'nationalities', 'eyeColors', 'hairColors')
+            compact('user', 'roles', 'nationalities', 'eyeColors', 'hairColors', 'contracts')
         );
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request $request
+     * @param ProfileSave $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ProfileSave $request)
     {
-        //
+        $eyeColor = $request->has('eye_color_id') ? EyeColor::findOrFail($request->get('eye_color_id')) : null;
+        $hairColor = $request->has('hair_color_id') ? HairColor::findOrFail($request->get('hair_color_id')) : null;
+
+        return $this->userService->store(
+            $request->all(),
+            Role::findOrFail($request->get('role_id')),
+            Nationality::findOrFail($request->get('nationality_id')),
+            $eyeColor,
+            $hairColor
+        );
     }
 
     /**

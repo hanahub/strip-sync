@@ -21,7 +21,6 @@ class User extends Authenticatable
         'password',
         'phone',
         'stage_name',
-        'stage_availability',
         'address_street',
         'address_city',
         'address_state',
@@ -39,8 +38,15 @@ class User extends Authenticatable
         'weight',
         'bust_size',
         'waist_size',
-        '',
+        'contract',
     ];
+    
+    protected $casts = [
+        'is_working_visa'=> 'boolean',
+        'is_convicted'=> 'boolean',
+    ];
+    
+    protected $dates = ['working_visa_expiry_date'];
 
     /**
      * The attributes that should be hidden for arrays.
@@ -73,5 +79,21 @@ class User extends Authenticatable
     public function musicPreferences()
     {
         return $this->hasMany(MusicPreference::class);
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function eyeColor()
+    {
+        return $this->belongsTo(EyeColor::class);
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function hairColor()
+    {
+        return $this->belongsTo(HairColor::class);
     }
 }

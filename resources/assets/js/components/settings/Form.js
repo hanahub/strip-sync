@@ -1,5 +1,5 @@
 import Form from './../../Form';
-import { maxValueOfRandomID } from './constants';
+import { maxValueOfRandomID } from './../../constants';
 
 export default class SettingsForm extends Form {
   /**

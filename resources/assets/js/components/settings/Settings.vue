@@ -40,16 +40,16 @@
       </ul>
       <div class="tab-content">
         <div class="tab-pane active" id="venue-info">
-          <venue-info :form="this.form"></venue-info>
+          <venue-info :form="form"></venue-info>
         </div>
         <div class="tab-pane" id="default-settings">
-          <default-settings :form="this.form"></default-settings>
+          <default-settings :form="form"></default-settings>
         </div>
         <div class="tab-pane" id="shifts">
           <shift-times :shift-times="form.shiftTimes" :errors="form.errors"></shift-times>
         </div>
         <div class="tab-pane" id="working-environment">
-          <working-environment :form="this.form"></working-environment>
+          <working-environment :form="form"></working-environment>
         </div>
         <div class="tab-pane" id="views-b2">
           <pages :pages="form.pages"></pages>

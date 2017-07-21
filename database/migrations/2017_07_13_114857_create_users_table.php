@@ -62,7 +62,13 @@ class CreateUsersTable extends Migration
             $table->decimal('bust_size')->unsigned()->nullable();
             $table->decimal('waist_size')->unsigned()->nullable();
 
-            // ToDo: add eye color and hair color
+            $table->integer('eye_color_id')->unsigned()->nullable();
+            $table->foreign('eye_color_id')->references('id')->on('eye_colors');
+
+            $table->integer('hair_color_id')->unsigned()->nullable();
+            $table->foreign('hair_color_id')->references('id')->on('hair_colors');
+
+            $table->text('contract')->nullable();
 
             $table->rememberToken();
             $table->timestamps();

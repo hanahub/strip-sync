@@ -144,9 +144,13 @@ return [
         ],
         "MUSIC_PREFERENCES" => [
             "TITLE" => "Music Preferences",
+            "ARTIST" => "Artist",
+            "SONG_TITLE" => "Song Title",
+            "BUTTON_ADD_MUSIC_PREFERENCE" => "Add Music Preference",
         ],
         "CONTRACT" => [
             "TITLE" => "Contract",
+            ""
         ],
         "BUTTON_SAVE" => "Save Profile"
     ],

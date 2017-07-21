@@ -18,7 +18,7 @@
 
 <script>
   import ShiftTime from './ShiftTime.vue';
-  import { maxValueOfRandomID } from './constants';
+  import { maxValueOfRandomID } from './../../constants';
 
   export default {
     components: {
